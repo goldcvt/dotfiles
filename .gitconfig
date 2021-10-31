@@ -1,0 +1,11 @@
+[user]
+	email = thegoldcat5@gmail.com
+	name = goldcvt
+[credential]
+	helper = cache
+[oh-my-zsh]
+[oh-my-zsh]
+	hide-status = 1
+	hide-dirty = 1
+[init]
+	defaultBranch = main
