@@ -2,21 +2,13 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/goldcat/.oh-my-zsh"
-
-
-# Export Android SDK variables
-export ANDROID_HOME=/mnt/c/Users/thego/AppData/Local/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jnrowe"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -55,7 +47,7 @@ ZSH_THEME="jnrowe"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-#COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -109,7 +101,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Set colors for LS_COLORS
-eval `dircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -120,10 +112,5 @@ eval `dircolors ~/.dircolors`
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
+alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="cd ~/.oh-my-zsh"
-alias adb="/mnt/c/Users/thego/AppData/Local/Android/Sdk/platform-tools/adb.exe"
-alias docker="docker.exe"
-eval "$(pyenv init -)"
-
-export PATH="$HOME/.poetry/bin:$PATH"
