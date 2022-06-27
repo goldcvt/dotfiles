@@ -7,7 +7,7 @@ set smartindent
 " auto-source .vimrc in a directory that you open with vim
 set exrc
 " scroll & numbers
-" scroll when 8 lines away from top/bottom 
+" scroll when 8 lines away from top/bottom
 set scrolloff=8
 set sidescrolloff=10
 set relativenumber
@@ -31,8 +31,7 @@ set undofile
 
 set incsearch
 
-set termguicolors
-" side-gutter or something. useful for linting or git stuff those + and - 
+" side-gutter or something. useful for linting or git stuff those + and -
 set signcolumn=yes
 
 " autocomplete or something
@@ -63,33 +62,29 @@ set shortmess+=c
 set clipboard+=unnamedplus
 
 " customize find
-" https://www.reddit.com/r/neovim/comments/qkbx5n/comment/hizfmsx/?utm_source=share&utm_medium=web2x&context=3 
-set wildmenu
+" https://www.reddit.com/r/neovim/comments/qkbx5n/comment/hizfmsx/?utm_source=share&utm_medium=web2x&context=3
 set path+=**
+set wildmenu
+set wildmode=longest,list,full
+" ignore these
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+" Shell to zsh
+set shell=zsh
 
-" Plugin time baby!
-" NOTE! You need to install vim-plug for this!
-call plug#begin('~/.vim/plugged')
-" popup windows
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
-" fuzzy finder
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'gruvbox-community/gruvbox'
-" lsp
-" undotree
-" ??
-" some git integrations
-call plug#end()
 
-colorscheme gruvbox
-highlight Normal guibg=none
+" ripgrep integration
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 " <leader> is SPACE
 let mapleader=" "
-" remaps and stuff
-" mode nore? (if present - do not execute other remaps from this one) map lhs (what we type) rhs (what is executed)
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep project for >")})<CR>
 
 " Autocommands. Like 'em event listeners in good ol' JS
 fun! TrimTrailingWhitespace()
@@ -104,3 +99,30 @@ augroup GOLDCVT
   autocmd!
   autocmd BufWritePre * :call TrimTrailingWhitespace()
 augroup END
+
+" autoyank highlight?
+" autosave before buffer closes if it's not new?
+
+" Imports
+runtime ./plug.vim
+runtime ./maps.vim
+
+" theme and colors
+" ------
+" lamely works with tmux duuuh
+"if exists("&termguicolors") && exists("&winblend")
+ "  syntax enable
+ "  set termguicolors
+ "  set winblend=0
+ "  set wildoptions=pum
+ "  set pumblend=5
+ "  set background=dark
+ "   Use NeoSolarized
+ "  let g:neosolarized_termtrans=1
+ "  runtime ./colors/NeoSolarized.vim
+ "  colorscheme NeoSolarized
+"else
+"   colorscheme gruvbox
+"endif
+colorscheme gruvbox
+highlight Normal guibg=none
