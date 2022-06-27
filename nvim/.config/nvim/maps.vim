@@ -22,6 +22,12 @@ nnoremap - <C-x>
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap x "_x
+
+" c without doing buffer
+nnoremap <leader>c "_c
+vnoremap <leader>c "_c
+
+" Yank what 'xcuse me?
 nnoremap Y yg$
 
 " Window resize in vim split

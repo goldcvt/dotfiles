@@ -17,8 +17,11 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 end
+-- autopairs setup
+require("nvim-autopairs").setup {}
 
-
+-- autopairs
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require'cmp'
 
 cmp.setup({
@@ -70,6 +73,43 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
+-- autopairs
+local handlers = require('nvim-autopairs.completion.handlers')
+-- autopairs
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done({
+    filetypes = {
+      -- "*" is a alias to all filetypes
+      ["*"] = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method,
+          },
+          handler = handlers["*"]
+        }
+      },
+      lua = {
+        ["("] = {
+          kind = {
+            cmp.lsp.CompletionItemKind.Function,
+            cmp.lsp.CompletionItemKind.Method
+          },
+          ---@param char string
+          ---@param item item completion
+          ---@param bufnr buffer number
+          handler = function(char, item, bufnr)
+            -- Your handler function. Inpect with print(vim.inspect{char, item, bufnr})
+          end
+        }
+      },
+      -- Disable for tex
+      tex = false
+    }
+  })
+)
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 

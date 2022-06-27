@@ -28,7 +28,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 " END COMPLETION --------
-Plug 'hrsh7th/nvim-cmp'
+Plug 'windwp/nvim-autopairs'
 
 " treesitter for this nice lil highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
