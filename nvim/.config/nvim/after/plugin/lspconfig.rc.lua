@@ -119,4 +119,10 @@ nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   capabilities = capabilities
 }
+-- python
+nvim_lsp.pyright.setup {
+    on_attach = on_attach,
+    filetypes = { "python" },
+    capabilities = capabilities
+}
 vim.lsp.set_log_level("debug")

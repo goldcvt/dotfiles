@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup{
-    ensure_installed = { "lua", "typescript", "javascript", "dockerfile" },
+    ensure_installed = { "lua", "typescript", "javascript", "dockerfile", "python" },
     sync_install = false,
     highlight = {
         enable = true,
@@ -7,5 +7,5 @@ require'nvim-treesitter.configs'.setup{
     }
 }
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
