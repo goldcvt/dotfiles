@@ -36,3 +36,18 @@ nnoremap <Leader>- :vertical resize -5<CR>
 
 " sh and !command remaps
 nnoremap <leader>x :silent !chmod +x %<CR>
+
+" ===== GIT FUGITIVE
+nmap<leader>gs :G<CR>
+nmap<leader>gj :diffget //2<CR>
+nmap<leader>gk :diffget //3<CR>
+nnoremap <leader>gc :Git checkout<CR>
+nnoremap <leader>gd :Git diff<CR>
+
+" NERDTree
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeFocus<CR>
+
+" formating/linting
+nnoremap <leader>f :lua vim.lsp.buf.formatting_sync()<CR>
+nnoremap <leader>l :lua vim.lsp.buf.diagnostics()<CR>

@@ -17,6 +17,7 @@ Plug 'gruvbox-community/gruvbox'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " COMPLETION -------
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -35,8 +36,19 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 " When scrolling, show a bit of context inside functions etc
 Plug 'nvim-treesitter/nvim-treesitter-context'
-"
+
+" git
+" git-fugitive for working with git
+Plug 'tpope/vim-fugitive'
+" vgit.nvim for that visual experience
+Plug 'tanvirtin/vgit.nvim'
+
+" files and stuff
 Plug 'mbbill/undotree'
+Plug 'preservim/nerdtree'
+
+" sessions
+Plug 'rmagatti/auto-session'
 " ??
 " folding
 " MUST-HAVE for per-project settings nlsp-settings.nvim

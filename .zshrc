@@ -114,3 +114,4 @@ fi
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="cd ~/.oh-my-zsh"
+export PATH="$PATH:./node_modules/.bin"

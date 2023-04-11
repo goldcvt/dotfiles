@@ -100,13 +100,26 @@ augroup GOLDCVT
   autocmd BufWritePre * :call TrimTrailingWhitespace()
 augroup END
 
+augroup NERDTree
+  " open NERDTree if cli arg is a dir
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+  " Close the tab if NERDTree is the only window remaining in it.
+  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+augroup END
+
 " autoyank highlight?
 " autosave before buffer closes if it's not new?
 
 " Imports
 runtime ./plug.vim
 runtime ./maps.vim
-
+" runtime ./statusline.vim " - TODO fix statusline with git stuff and
+" errors/warnings
+" lua require 'callbacks' " - TODO open in new tab (and delete those tab split
+" \| from
+" lspconfig.rc.lua)
 " theme and colors
 " ------
 " lamely works with tmux duuuh

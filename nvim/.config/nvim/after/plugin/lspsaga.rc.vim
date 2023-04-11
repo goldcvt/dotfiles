@@ -23,7 +23,7 @@ saga.init_lsp_saga({
         open = "o",
         vsplit = "v",
         split = "s",
-        tabe = "t",
+        tab = "t",
         quit = "q",
         scroll_down = "<C-f>",
         scroll_up = "<C-b>", -- quit can be a table
@@ -38,8 +38,10 @@ saga.init_lsp_saga({
 EOF
 
 nnoremap <silent><C-j> <cmd>Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent><C-k> <cmd>Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent>K <cmd>Lspsaga hover_doc<CR>
 inoremap <silent><C-k> <cmd>Lspsaga signature_help<CR>
+
 " finds cursor word definition and reference
 nnoremap <silent>gh <cmd>Lspsaga lsp_finder<CR>
 
@@ -47,10 +49,10 @@ nnoremap <silent>gp <cmd>Lspsaga preview_definition<CR>
 nnoremap <silent><leader>gr <cmd>Lspsaga rename<CR>
 
 " Use code actions
-nnoremap <silent> <leader>ca <cmd>Lspsaga code_action<CR>
-vnoremap <silent> <leader>ca <cmd>Lspsaga range_code_action<CR>
+nnoremap <silent><leader>ca <cmd>Lspsaga code_action<CR>
+vnoremap <silent><leader>ca <cmd><C-U>Lspsaga range_code_action<CR>
 
 " float term
-nnoremap <silent> <A-d> <cmd>Lspsaga open_floaterm<CR>
+nnoremap <silent><A-d> <cmd>Lspsaga open_floaterm<CR>
 " this :q hack is hacky af
-tnoremap <silent> <A-d> <cmd>Lspsaga close_floaterm<CR>:q<CR>
+tnoremap <silent><A-d> <cmd>Lspsaga close_floaterm<CR>:q<CR>
